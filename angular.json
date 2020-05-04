@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "tienda-colchones-front"
+    }
+  },
+  "defaultProject": "tienda-colchones-front",
+  "cli": {
+    "analytics": "6453750b-8c53-4e32-9d20-804c466036d7"
+  }
 }
