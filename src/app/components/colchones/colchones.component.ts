@@ -8,7 +8,8 @@ declare var M: any;
 @Component({
   selector: 'app-colchones',
   templateUrl: './colchones.component.html',
-  styleUrls: ['./colchones.component.css']
+  styleUrls: ['./colchones.component.css'],
+  providers: [ ColchonService ]
 })
 export class ColchonesComponent implements OnInit {
 
@@ -29,7 +30,7 @@ export class ColchonesComponent implements OnInit {
     } else {
       this.colchonService.postColchon(form.value)
       .subscribe(res => {
-        this.getColchones();
+        this.getColchons();
         this.resetForm(form);
         M.toast({html: 'Save successfully'});
       });
@@ -37,7 +38,7 @@ export class ColchonesComponent implements OnInit {
     
   }
 
-  getColchones() {
+  getColchons() {
     this.colchonService.getColchones()
       .subscribe(res => {
         this.colchonService.colchones = res as Colchon[];
@@ -52,7 +53,7 @@ export class ColchonesComponent implements OnInit {
     if(confirm('Are you sure you want to delete it?')) {
       this.colchonService.deleteColchon(_id)
         .subscribe(res => {
-          this.getColchones();
+          this.getColchons();
           this.resetForm(form);
           M.toast({html: 'Deleted Succesfully'});
         });

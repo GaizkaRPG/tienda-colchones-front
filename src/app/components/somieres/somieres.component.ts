@@ -8,7 +8,8 @@ declare var M: any;
 @Component({
   selector: 'app-somieres',
   templateUrl: './somieres.component.html',
-  styleUrls: ['./somieres.component.css']
+  styleUrls: ['./somieres.component.css'],
+  providers: [ SomierService ]
 })
 export class SomieresComponent implements OnInit {
 

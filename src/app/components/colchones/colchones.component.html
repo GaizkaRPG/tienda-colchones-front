@@ -4,7 +4,6 @@
             <div class="card">
                 <div class="card-content">
                 <form #colchonForm="ngForm" (ngSubmit)="addColchon(colchonForm)">
-                    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="colchonService.selectedColchon._id">
                     <div class="row">
                     <div class="input-field col-s12">
                         <h5>Nombre</h5>
