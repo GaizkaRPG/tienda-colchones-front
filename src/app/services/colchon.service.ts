@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Colchon } from '../models/Colchon';
+import { Colchon } from '../models/colchon.model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,7 @@ export class ColchonService {
     return this.http.post(this.URL_API, colchon);
   }
 
-  getColchon() {
+  getColchones() {
     return this.http.get(this.URL_API);
   }
 

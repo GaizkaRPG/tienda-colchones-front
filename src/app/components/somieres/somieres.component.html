@@ -1,1 +1,63 @@
-<p>somieres works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col s5">
+            <div class="card">
+                <div class="card-content">
+                <form #somierForm="ngForm" (ngSubmit)="addSomier(somierForm)">
+                    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="somierService.selectedSomier._id">
+                    <div class="row">
+                    <div class="input-field col-s12">
+                        <h5>Nombre</h5>
+                        <input type="text" name="name" #name="ngModel" [(ngModel)]="somierService.selectedSomier.name">
+                    </div>
+                    <div class="input-field col-s12">
+                        <h5>Descripcion</h5>
+                        <input type="text" name="description" #name="ngModel" [(ngModel)]="somierService.selectedSomier.description">
+                    </div>
+                    <div class="input-field col-s12">
+                        <h5>Precio</h5>
+                        <input type="text" name="price" #name="ngModel" [(ngModel)]="somierService.selectedSomier.price">
+                    </div>
+                    <div class="input-field col-s12">
+                        <h5>IMG url</h5>
+                        <input type="text" name="img" #name="ngModel" [(ngModel)]="somierService.selectedSomier.img" value="0">
+                    </div>
+                    <div class="card-action">
+                        <div class="input-field col-s12">
+                        <button class="btn right" style="margin-left: 2px;" (click)="resetForm(somierForm)">Clean</button>
+                        <button class="btn right">Save</button>
+                        </div>
+                    </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+            </div>     
+        <div class="col s7">
+            <table class="striped highlight black-text">
+            <thead>
+                <th>-</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let somier of somierService.somieres">
+                <td><img src="{{ somier.img }}"></td>
+                <td>{{ somier.name }}</td>
+                <td>{{ somier.description }}</td>
+                <td>{{ somier.price }}</td>
+                <td>
+                    <a (click)="editSomier(somier)">
+                    <i class="material-icons">edit</i>
+                    </a>
+                    <a (click)="deleteSomier(somier._id, somierForm)">
+                    <i class="material-icons">delete</i>
+                    </a>
+                </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>      
+</div>

@@ -1,29 +1,63 @@
 <div class="container">
-    <div class="row">     
-      <div class="col s7">
-        <table class="striped highlight black-text">
-          <thead>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Office</th>
-            <th>Operations</th>
-          </thead>
-          <tbody>
-            <!--<tr *ngFor="let employee of employeeService.employees">
-              <td>{{ employee.name }}</td>
-              <td>{{ employee.position }}</td>
-              <td>{{ employee.office }}</td>
-              <td>
-                <a (click)="editEmployee(employee)">
-                  <i class="material-icons">edit</i>
-                </a>
-                <a (click)="deleteEmployee(employee._id, employeeForm)">
-                  <i class="material-icons">delete</i>
-                </a>
-              </td>
-            </tr>-->
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+    <div class="row">
+        <div class="col s5">
+            <div class="card">
+                <div class="card-content">
+                <form #colchonForm="ngForm" (ngSubmit)="addColchon(colchonForm)">
+                    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="colchonService.selectedColchon._id">
+                    <div class="row">
+                    <div class="input-field col-s12">
+                        <h5>Nombre</h5>
+                        <input type="text" name="name" #name="ngModel" [(ngModel)]="colchonService.selectedColchon.name">
+                    </div>
+                    <div class="input-field col-s12">
+                        <h5>Descripcion</h5>
+                        <input type="text" name="description" #name="ngModel" [(ngModel)]="colchonService.selectedColchon.description">
+                    </div>
+                    <div class="input-field col-s12">
+                        <h5>Precio</h5>
+                        <input type="text" name="price" #name="ngModel" [(ngModel)]="colchonService.selectedColchon.price">
+                    </div>
+                    <div class="input-field col-s12">
+                        <h5>IMG url</h5>
+                        <input type="text" name="img" #name="ngModel" [(ngModel)]="colchonService.selectedColchon.img" value="0">
+                    </div>
+                    <div class="card-action">
+                        <div class="input-field col-s12">
+                        <button class="btn right" style="margin-left: 2px;" (click)="resetForm(colchonForm)">Clean</button>
+                        <button class="btn right">Save</button>
+                        </div>
+                    </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+            </div>     
+        <div class="col s7">
+            <table class="striped highlight black-text">
+            <thead>
+                <th>-</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let colchon of colchonService.colchones">
+                <td><img src="{{ colchon.img }}"></td>
+                <td>{{ colchon.name }}</td>
+                <td>{{ colchon.description }}</td>
+                <td>{{ colchon.price }}</td>
+                <td>
+                    <a (click)="editColchon(colchon)">
+                    <i class="material-icons">edit</i>
+                    </a>
+                    <a (click)="deleteColchon(colchon._id, colchonForm)">
+                    <i class="material-icons">delete</i>
+                    </a>
+                </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>      
+</div>

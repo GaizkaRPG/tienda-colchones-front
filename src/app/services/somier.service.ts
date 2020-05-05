@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Somier } from '../models/Somier';
+import { Somier } from '../models/somier.model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,7 @@ export class SomierService {
     return this.http.post(this.URL_API, somier);
   }
 
-  getSomier() {
+  getSomieres() {
     return this.http.get(this.URL_API);
   }
 
